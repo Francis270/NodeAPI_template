@@ -1,4 +1,4 @@
 # ExpressAPI_typescript
  
-REST API
+REST API TEMPLATE
 Express Node Typescript
