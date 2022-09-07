@@ -5,7 +5,12 @@ export const defaultUser = (req: Request, res: Response<User>, next: NextFunctio
     if (req.method !== "GET") {
         return res.sendStatus(403).end();
     }
-    res.json({id: 0, name: ""});
+    const defaultUser = {
+        id: 0,
+        name: ""
+    };
+    
+    res.json(defaultUser);
 }
 
 export const findOne = async (req: Request, res: Response<UserWithId>, next: NextFunction) => {

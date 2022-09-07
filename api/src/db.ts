@@ -1,8 +1,6 @@
 import { MongoClient } from 'mongodb';
 
-const {
-  MONGO_URI = 'mongodb://localhost:27017/api',
-} = process.env;
+const uri = process.env.MONGO_URI || 'mongodb://localhost/api'
 
-export const client = new MongoClient(MONGO_URI);
+export const client = new MongoClient(uri);
 export const db = client.db();
