@@ -3,7 +3,7 @@ import morgan from 'morgan';
 import helmet from 'helmet';
 import cors from 'cors';
 
-import * as middlewares from './utils/middlewares';
+import { notFound, errorHandler } from './utils/middlewares';
 import MessageResponse from './interfaces/MessageResponse';
 import api from './api';
 
@@ -17,12 +17,12 @@ app.use(express.json());
 app.get<{}, MessageResponse>('/', (req, res) => {
 	res.json({
 	    message: 'welcome home',
-  });
+  	});
 });
 
 app.use('/api/v1', api);
 
-app.use(middlewares.notFound);
-app.use(middlewares.errorHandler);
+app.use(notFound);
+app.use(errorHandler);
 
 export default app;
